@@ -46,3 +46,20 @@ For relatively simple systems, RBAC is fine.
 A system like this would be not unlike auth files we've previously used and can be used as middle ware.
 The session token issued after the authentification can be used to also give the perms (done this before - JWT/session token)
 */
+
+/* In a database sense, we have basic three tables. Users, Role, Permission
+With join tables of UserRole and RolePermissions.
+
+Another common table addition is "Organization" or in Discord a "server" (even more colloquially it's guilds).
+Joining an organization/server/guild means you can have certain UserRoles that each grant their own sets of permissions.
+
+To move up from there, to say Google Drive, there may be something like blogs (just text article).
+Users table will be joined with blog to make UserBlogRole.
+We will need to create blog role and create a join table with permissions.
+This is very similar to the regular user/role/permission but its another extra layer.
+
+This gets worse as more and more resources need to be shared (video/images/etc).
+
+Hence if we want to extrapolate further so we don't repeat these join tables - we need a generic type for these resources.
+And we get ABAC.
+*/
