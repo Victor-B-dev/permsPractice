@@ -85,7 +85,9 @@ const ROLES = {
         todo.completed,
     },
   },
-} as const satisfies RolesWithPermissions
+} as const satisfies RolesWithPermissions 
+// as const is a type assertion that locks the object & its values as a type-- in this case for example, a sub type like admin/mod/user could not be changed to another string
+// makes sure the resulting type matches with a predefined type (RolesWithPermissions)
 
 export function hasPermission<Resource extends keyof Permissions>(
   user: User,
